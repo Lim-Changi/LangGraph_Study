@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangGraph NestJS ChatBot</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🤖 LangGraph ChatBot</h1>
+            <p>Claude AI와 RAG 시스템을 활용한 지능형 챗봇</p>
+        </header>
+
+        <div class="main-content">
+            <!-- 왼쪽: 채팅 모드 선택 -->
+            <div class="mode-selector">
+                <h3>📋 채팅 모드 선택</h3>
+                <div class="mode-buttons">
+                    <button class="mode-btn active" data-mode="chat">💬 기본 채팅</button>
+                    <button class="mode-btn" data-mode="rag-chat">🧠 RAG 채팅</button>
+                    <button class="mode-btn" data-mode="workflow">⚙️ 워크플로우</button>
+                    <button class="mode-btn" data-mode="csv-query">📊 CSV 질의</button>
+                </div>
+            </div>
+
+            <!-- 가운데: 채팅 공간 -->
+            <div class="chat-container">
+                <div class="chat-header">
+                    <span class="chat-mode-indicator" id="chatModeIndicator">💬 기본 채팅 모드</span>
+                    <button class="clear-chat-btn" id="clearChatBtn">🗑️ 대화 기록 삭제</button>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <p>안녕하세요! LangGraph ChatBot입니다. 무엇을 도와드릴까요?</p>
+                            <span class="message-time"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="메시지를 입력하세요..." maxlength="500">
+                        <button id="sendButton" disabled>
+                            <span class="send-icon">➤</span>
+                        </button>
+                    </div>
+                    <div class="input-info">
+                        <span id="charCounter">0/500</span>
+                        <span class="typing-indicator" id="typingIndicator" style="display: none;">
+                            <span></span><span></span><span></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오른쪽: 문서 업로드 + 업로드된 문서 -->
+            <div class="right-panel">
+                <div class="upload-section">
+                    <h3>📁 문서 업로드</h3>
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content">
+                            <span class="upload-icon">📄</span>
+                            <p>파일을 드래그하거나 클릭하여 업로드</p>
+                            <p class="upload-types">지원 형식: PDF, TXT, CSV</p>
+                            <input type="file" id="fileInput" accept=".pdf,.txt,.csv" hidden>
+                        </div>
+                    </div>
+                    <div class="upload-status" id="uploadStatus"></div>
+                </div>
+                <div class="documents-section">
+                    <h3>📚 업로드된 문서</h3>
+                    <div class="documents-list" id="documentsList">
+                        <p class="no-documents">업로드된 문서가 없습니다.</p>
+                    </div>
+                    <button class="refresh-docs-btn" id="refreshDocsBtn">🔄 새로고침</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Powered by NestJS + LangGraph + Claude AI</p>
+        </footer>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
