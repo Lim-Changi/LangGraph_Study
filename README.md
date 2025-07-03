@@ -1,63 +1,22 @@
-# LangGraph Study
+# LangGraph 개인 스터디 프로젝트
 
-NestJS 기반의 LangGraph와 RAG(Retrieval-Augmented Generation) 시스템 구현 프로젝트
+- LangGraph.js와 관련 기술을 학습하고 실험하기 위한 스터디 공간
+- 두 개의 하위 프로젝트를 포함
 
-## 기능
+## 프로젝트 구조
 
-### LangGraph API
+- **`nest-chatbot-server/`**: NestJS를 기반으로 구축된 챗봇 애플리케이션입니다. LangGraph.js를 사용하여 기본적인 RAG(Retrieval-Augmented Generation) 파이프라인과 워크플로우를 구현하였습니다.
+- **`langgraph-server/`**: LangGraph.js의 핵심 기능을 사용하여 ReAct(Reason + Act) 기반의 자율 에이전트를 구현한 LangGraph 프로젝트입니다.
 
-- **Chat**: 기본 메시지 처리
-- **RAG Chat**: 문서 기반 대화 시스템
-- **Workflow**: 체인 워크플로우 처리
+## 시작하기
 
-### RAG System
+각 하위 프로젝트의 `README.md` 파일에 있는 상세한 안내를 참고하여 시작할 수 있습니다.
 
-- **문서 업로드**: PDF, TXT, CSV 파일 지원
-- **문서 검색**: 벡터 기반 의미 검색
-- **CSV 분석**: CSV 파일 데이터 분석
-- **컬렉션 관리**: 문서 컬렉션 리셋 기능
+- [`nest-chatbot-server/README.md`](./nest-chatbot-server/README.md)
+- [`langgraph-server/README.md`](./langgraph-server/README.md)
 
-## 바이브 코딩
+## 주요 기술 스택
 
-- **Claud Code**: 프로젝트 셋업
-- **Cursor AI**: 에러 디버깅 및 추가 기능 개발
-
-## 기술 스택
-
-- **Backend**: NestJS, TypeScript
-- **AI/ML**: LangChain, LangGraph, Anthropic Claude
+- **AI/ML**: LangGraph.js
+- **Backend**: Node.js, NestJS, TypeScript
 - **Vector Store**: ChromaDB
-- **File Processing**: Multer, pdf-parse
-
-## API 엔드포인트
-
-### LangGraph (`/langgraph`)
-
-- `POST /chat` - 기본 채팅
-- `POST /rag-chat` - RAG 기반 채팅
-- `POST /workflow` - 워크플로우 처리
-
-### RAG (`/rag`)
-
-- `POST /upload` - 문서 업로드
-- `POST /query` - RAG 질의
-- `GET /search` - 문서 검색
-- `POST /csv-query` - CSV 데이터 질의
-
-## 실행 방법
-
-```bash
-# 의존성 설치
-npm install
-
-# 개발 서버 실행
-npm run start:dev
-
-# 프로덕션 빌드
-npm run build
-npm run start:prod
-```
-
-## 환경 설정
-
-환경 변수를 설정하여 AI 모델 API 키를 구성하세요.
